@@ -1,5 +1,5 @@
 ﻿using AerionDyseti.API.Shared.Models;
-using AerionDyseti.Services;
+using AerionDyseti.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,13 +28,12 @@ namespace AerionDyseti.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add the JwtService to IoC container.
-            services.Configure<JwtService>(opt =>
-            {
-                opt.Issuer = Configuration["JwtSettings:Issuer"];
-                opt.Audience = Configuration["JwtSettings:Audience"];
-                opt.Secret = Configuration["JwtSettings:Secret"];
-            });
+
+            services.AddJwtService(
+                Configuration["JwtSettings:Issuer"],
+                Configuration["JwtSettings:Audience"],
+                Configuration["JwtSettings:Secret"]
+            );
 
 
             // Add EF Context Service.
