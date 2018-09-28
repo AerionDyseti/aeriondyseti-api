@@ -15,6 +15,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace AerionDyseti.API.Auth.Controllers
 {
@@ -64,7 +65,7 @@ namespace AerionDyseti.API.Auth.Controllers
                 return BadRequest(new ErrorResponse { Errors = new List<string> { "The provided email is not yet approved to use this system." } });
             }
 
-            Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.CheckPasswordSignInAsync(user, loginRequest.Password, false);
+            SignInResult result = await signInManager.CheckPasswordSignInAsync(user, loginRequest.Password, false);
             if (!result.Succeeded)
             {
                 return BadRequest(new ErrorResponse { Errors = new List<string> { "The provided email and password did not match any accounts." } });
@@ -111,7 +112,7 @@ namespace AerionDyseti.API.Auth.Controllers
 
             AerionDysetiUser user = new AerionDysetiUser
             {
-                UserName = registerRequest.MesNumber,
+                UserName = registerRequest.Email,
                 Email = registerRequest.Email,
                 FirstName = registerRequest.FirstName,
                 LastName = registerRequest.LastName,

@@ -11,9 +11,6 @@ namespace AerionDyseti.API.Auth.Models.RequestDTOs
         public string Password { get; set; }
 
         [Required]
-        public string MesNumber { get; set; }
-
-        [Required]
         public string FirstName { get; set; }
 
         [Required]
