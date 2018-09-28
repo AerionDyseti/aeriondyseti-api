@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 
-namespace AerionDyseti.API.Shared.Models
+namespace AerionDyseti.API.Auth.Models
 {
     public class AerionDysetiUser : IdentityUser
     {

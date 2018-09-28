@@ -1,4 +1,4 @@
-﻿namespace AerionDyseti.API.Shared.Models
+﻿namespace AerionDyseti.API.Auth.Models.ResponseDTOs
 {
     public class TokenResponse
     {

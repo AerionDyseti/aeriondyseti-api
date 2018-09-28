@@ -1,4 +1,4 @@
-﻿using AerionDyseti.API.Shared.Models;
+﻿using AerionDyseti.API.Auth.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
